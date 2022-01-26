@@ -1437,7 +1437,8 @@ RUN if [ ${INSTALL_PROTOC} = true ]; then \
 # Check PHP version:
 ###########################################################################
 
-RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
+# RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
+RUN set -xe; php -v | head -n 1 | grep -q "PHP 8.1."
 
 ###########################################################################
 # Oh My ZSH!
