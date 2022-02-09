@@ -1,4 +1,4 @@
-# Sustech solarforecast Docker
+# Elic Zero Docker
 
 ### Requirements
 
@@ -9,9 +9,9 @@
 ### Usage
 
 1.  Clone repository **ab-docker**:
-   [https://github.com/namtruong95/ab-docker](https://github.com/namtruong95/ab-docker/)
+   [https://github.com/namtruong95/elic-zero-docker](https://github.com/namtruong95/elic-zero-docker/)
 
-2. Enter the ab-docker folder and copy .env.example to .env
+2. Enter the elic-zero-docker folder and copy .env.example to .env
     ```
     cp .env.example .env
     ```
@@ -24,8 +24,8 @@
 
 4.  Enter the Workspace container
     ```
-    ./bin go api_server
+    ./bin go api
     or
-    ./bin gas
+    ./bin ga
     ```
 
