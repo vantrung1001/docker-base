@@ -5,6 +5,8 @@
 ### Elic zero #############################################
 ELIC_ZERO_API_PORT=8000
 
+ELIC_ZERO_API_DOCS_PORT=5050
+
 IDE_ICECODER_PORT=8083
 
 

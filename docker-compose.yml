@@ -247,6 +247,7 @@ services:
         - ${NGINX_SSL_PATH}:/etc/nginx/ssl
       ports:
         - "${ELIC_ZERO_API_PORT}:${ELIC_ZERO_API_PORT}"
+        - "${ELIC_ZERO_API_DOCS_PORT}:${ELIC_ZERO_API_DOCS_PORT}"
         # - "${NGINX_HOST_HTTPS_PORT}:443"
       depends_on:
         - php-fpm
