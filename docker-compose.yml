@@ -296,6 +296,7 @@ services:
 
 ### MySQL ################################################
     mysql:
+      platform: 'linux/x86_64'
       build:
         context: ./mysql
         args:

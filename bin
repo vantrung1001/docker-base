@@ -31,7 +31,7 @@ go_to () {
 }
 
 cws="/var/www"
-ctn="elic-zero-workspace-1"
+ctn="elic-zero_workspace_1"
 dcm="docker exec -it -u laradock"
 
 case $1 in
