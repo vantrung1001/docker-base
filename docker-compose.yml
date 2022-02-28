@@ -13,6 +13,8 @@ volumes:
     driver: ${VOLUMES_DRIVER}
   mysql:
     driver: ${VOLUMES_DRIVER}
+  postgres:
+    driver: ${VOLUMES_DRIVER}
 
 services:
 
@@ -327,6 +329,40 @@ services:
         - "${PMA_PORT}:80"
       depends_on:
         - "${PMA_DB_ENGINE}"
+      networks:
+        - frontend
+        - backend
+
+### PostgreSQL ###########################################
+    postgres:
+      build:
+        context: ./postgres
+        args:
+          - POSTGRES_VERSION=${POSTGRES_VERSION}
+      volumes:
+        - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+        - ${POSTGRES_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+      ports:
+        - "${POSTGRES_PORT}:5432"
+      environment:
+        - POSTGRES_DB=${POSTGRES_DB}
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      networks:
+        - backend
+
+### pgAdmin ##############################################
+    pgadmin:
+      image: dpage/pgadmin4:latest
+      environment:
+        - "PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}"
+        - "PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}"
+      ports:
+        - "${PGADMIN_PORT}:80"
+      volumes:
+        - ${DATA_PATH_HOST}/pgadmin:/var/lib/pgadmin
+      depends_on:
+        - postgres
       networks:
         - frontend
         - backend
