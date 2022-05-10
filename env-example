@@ -2,12 +2,17 @@
 ###################### Project setting#####################
 ###########################################################
 
-### Elic zero #############################################
+### custom #############################################
 ELIC_ZERO_API_PORT=8000
 ELIC_ZERO_API_DOCS_PORT=5051
-ELIC_AI_API_PORT=8004
+
 IDE_ICECODER_PORT=8083
+
+ELIC_AI_API_PORT=8004
+ELIC_AI_API_PORT_HTTPS=8404
+
 AUDIO_BOOK_API_PORT=8005
+AUDIO_BOOK_API_PORT_HTTPS=8405
 
 
 
