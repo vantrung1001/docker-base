@@ -126,7 +126,8 @@ services:
         - docker-in-docker:/certs/client
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
-      # ports:
+      ports:
+        - "3000:3000"
         # - "${WORKSPACE_SSH_PORT}:22"
         # - "${WORKSPACE_ECHO_GO_HOST_PORT}:6003"
       tty: true
@@ -255,6 +256,11 @@ services:
         - "${ELIC_ZERO_API_DOCS_PORT}:5050"
         - "${AUDIO_BOOK_API_PORT}:8005"
         - "${AUDIO_BOOK_API_PORT_HTTPS}:8405"
+        - "4005:4005"
+        - "4405:4405"
+        - "4006:4006"
+        - "4406:4406"
+        # - "3000:3000"
       depends_on:
         - php-fpm
       networks:
