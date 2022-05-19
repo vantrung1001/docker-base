@@ -126,6 +126,8 @@ services:
         - docker-in-docker:/certs/client
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
+      # expose:
+      #   - "3000"
       ports:
         - "3000:3000"
         # - "${WORKSPACE_SSH_PORT}:22"
@@ -251,16 +253,16 @@ services:
         - ${NGINX_SITES_PATH}:/etc/nginx/sites-available
         - ${NGINX_SSL_PATH}:/etc/nginx/ssl
       ports:
-        - "${ELIC_ZERO_API_PORT}:8000"
-        - "${ELIC_AI_API_PORT}:8004"
-        - "${ELIC_ZERO_API_DOCS_PORT}:5050"
-        - "${AUDIO_BOOK_API_PORT}:8005"
-        - "${AUDIO_BOOK_API_PORT_HTTPS}:8405"
-        - "4005:4005"
-        - "4405:4405"
-        - "4006:4006"
-        - "4406:4406"
-        # - "3000:3000"
+        - "${AUDIO_BOOK_API}:8001"
+        - "${AUDIO_BOOK_API_SSL}:8401"
+        - "${AUDIO_BOOK_WEB}:4001"
+        - "${AUDIO_BOOK_WEB_SSL}:4401"
+        - "${ELIC_AI_API}:8002"
+        - "${ELIC_AI_API_SSL}:8402"
+        - "${ELIC_AI_WEB}:4002"
+        - "${ELIC_AI_WEB_SSL}:4402"
+        - "${ELIC_CARBONIX_API}:8003"
+        - "${ELIC_CARBONIX_API_DOCS}:8603"
       depends_on:
         - php-fpm
       networks:
